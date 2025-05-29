@@ -8,17 +8,18 @@ import reactor.core.publisher.Mono
 import java.util.UUID
 import java.util.concurrent.ConcurrentHashMap
 
-
-@Component
+// SpecialistInfoId@Component
 class PersonService {
 
     // DB 대신 사용
     private  val people: ConcurrentHashMap<String, PersonDto> = ConcurrentHashMap();
 
+
     // POST
     fun createPerson(personDto: PersonDto): Mono<Boolean> {
         println("파라미터 : personDto=$personDto")
         return Mono.fromCallable { // ConcurrentHashMap(동기) 를 비동기 처리 하기 위해 사용
+                                    //
             // 랜덤 id
             val createId = UUID.randomUUID().toString()
             // 객체 불변성을 위해 copy()

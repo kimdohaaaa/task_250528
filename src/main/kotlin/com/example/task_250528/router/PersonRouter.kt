@@ -8,9 +8,11 @@ import org.springframework.web.reactive.function.server.RouterFunction
 import org.springframework.web.reactive.function.server.ServerResponse
 import org.springframework.web.reactive.function.server.coRouter
 
-
+// SpecialistInfoId
 @Configuration
 class PersonRouter(private val personHandler: PersonHandler) { // PersonHandler 주입
+
+
     @Bean // Spring 에 bean 등록
     fun personRoutes(): RouterFunction<ServerResponse> {
         return coRouter {
